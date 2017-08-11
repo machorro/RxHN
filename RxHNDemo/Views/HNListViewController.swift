@@ -99,42 +99,27 @@ class HNListViewController: UIViewController {
     
     func setupButtonsRx() {
         bestButton.rx.tap
-            .subscribe { (event) in
-                switch event {
-                case .next:
-                    self.loadPosts(with: .best)
-                    self.viewModel.refresh()
-                    self.tableView.reloadData()
-                default:
-                    break
-                }
-            }
+            .subscribe (onNext: {
+                self.loadPosts(with: .best)
+                self.viewModel.refresh()
+                self.tableView.reloadData()
+            })
             .addDisposableTo(disposeBag)
         
         newButton.rx.tap
-            .subscribe{ (event) in
-                switch event {
-                case .next:
-                    self.loadPosts(with: .new)
-                    self.viewModel.refresh()
-                    self.tableView.reloadData()
-                default:
-                    break
-                }
-            }
+            .subscribe (onNext: {
+                self.loadPosts(with: .new)
+                self.viewModel.refresh()
+                self.tableView.reloadData()
+            })
             .addDisposableTo(disposeBag)
         
         topButton.rx.tap
-            .subscribe { (event) in
-                switch event {
-                case .next:
-                    self.loadPosts(with: .top)
-                    self.viewModel.refresh()
-                    self.tableView.reloadData()
-                default:
-                    break
-                }
-            }
+            .subscribe (onNext: {
+                self.loadPosts(with: .top)
+                self.viewModel.refresh()
+                self.tableView.reloadData()
+            })
             .addDisposableTo(disposeBag)
     }
     
@@ -142,6 +127,7 @@ class HNListViewController: UIViewController {
         let coordinator = viewModel.coordinatorDelegate
         viewModel = HNListViewModel(type: type)
         viewModel.coordinatorDelegate = coordinator
+        setupIndicator()
         setupTableViewRx()
     }
 }
