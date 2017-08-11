@@ -7,7 +7,20 @@
 		<key>RxHNDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>7</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>E58C55881F31019400EC36FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E58C559C1F31019500EC36FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
