@@ -38,11 +38,6 @@ class HNListViewController: UIViewController {
             .asDriver()
             .drive(refresh.rx.isAnimating)
             .addDisposableTo(disposeBag)
-        
-//        viewModel.moreLoading
-//            .asDriver()
-//            .drive(refresh.rx.isAnimating)
-//            .addDisposableTo(disposeBag)
     }
     
     func setupScrollViewRx() {
