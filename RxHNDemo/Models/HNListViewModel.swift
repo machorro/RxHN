@@ -126,17 +126,11 @@ private extension HNListViewModel {
         return getIds(for: request)
             .flatMap { (array) -> Observable<[HNPost]> in
                 if max > array.count { return Observable.empty() }
-                let min = 0
-                let max = array.count - 1
+
                 let result = array[min...max].map { id in
                     return self.getPost(with: id)
                 }
-                return Observable.from(result)
-                    .merge()
-                    .filter {
-                        $0.type != .story
-                    }
-                    .toArray()
+                return Observable.from(result).merge().toArray()
         }
     }
     
