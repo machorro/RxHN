@@ -11,7 +11,10 @@
 		D8EA9BE47989D39023266F4E /* Pods_RxHNDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FE1165E0146412E5D44CCC /* Pods_RxHNDemoTests.framework */; };
 		E515C1A01F3CE16300FD4237 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E515C19F1F3CE16300FD4237 /* Coordinator.swift */; };
 		E515C1A21F3CE17F00FD4237 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E515C1A11F3CE17F00FD4237 /* AppCoordinator.swift */; };
+		E52207431F4206FC00473FF7 /* HNCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52207421F4206FC00473FF7 /* HNCommentsViewController.swift */; };
+		E52207451F42251000473FF7 /* HNKidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52207441F42251000473FF7 /* HNKidViewModel.swift */; };
 		E52E22421F3CBD2300F236FD /* HNPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E22411F3CBD2300F236FD /* HNPostCell.swift */; };
+		E540DDE51F424A8E00BDB6B5 /* HNCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E540DDE41F424A8E00BDB6B5 /* HNCommentCell.swift */; };
 		E576F4371F33AF1A00155E13 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576F4361F33AF1A00155E13 /* UIScrollView+Rx.swift */; };
 		E58C558D1F31019500EC36FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C558C1F31019500EC36FA /* AppDelegate.swift */; };
 		E58C558F1F31019500EC36FA /* HNListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C558E1F31019500EC36FA /* HNListViewController.swift */; };
@@ -44,7 +47,10 @@
 		DDD3BD662C7DF5A61BD78BE8 /* Pods-RxHNDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxHNDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxHNDemo/Pods-RxHNDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E515C19F1F3CE16300FD4237 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E515C1A11F3CE17F00FD4237 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		E52207421F4206FC00473FF7 /* HNCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNCommentsViewController.swift; sourceTree = "<group>"; };
+		E52207441F42251000473FF7 /* HNKidViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNKidViewModel.swift; sourceTree = "<group>"; };
 		E52E22411F3CBD2300F236FD /* HNPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNPostCell.swift; sourceTree = "<group>"; };
+		E540DDE41F424A8E00BDB6B5 /* HNCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNCommentCell.swift; sourceTree = "<group>"; };
 		E576F4361F33AF1A00155E13 /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Rx.swift"; sourceTree = "<group>"; };
 		E58C55891F31019400EC36FA /* RxHNDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxHNDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58C558C1F31019500EC36FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,17 +122,19 @@
 			children = (
 				E58C558E1F31019500EC36FA /* HNListViewController.swift */,
 				E52E22411F3CBD2300F236FD /* HNPostCell.swift */,
+				E52207421F4206FC00473FF7 /* HNCommentsViewController.swift */,
+				E540DDE41F424A8E00BDB6B5 /* HNCommentCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E515C1A51F3CE20F00FD4237 /* Models */ = {
+		E515C1A51F3CE20F00FD4237 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				E58C55B01F31194300EC36FA /* HNListViewModel.swift */,
-				E58C55B41F311F9E00EC36FA /* HNPost.swift */,
+				E52207441F42251000473FF7 /* HNKidViewModel.swift */,
 			);
-			path = Models;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		E515C1A61F3CE25A00FD4237 /* Helpers */ = {
@@ -136,6 +144,14 @@
 				E576F4361F33AF1A00155E13 /* UIScrollView+Rx.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E52207461F4225F600473FF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E58C55B41F311F9E00EC36FA /* HNPost.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E58C55801F31019400EC36FA = {
@@ -164,7 +180,8 @@
 				E515C1A61F3CE25A00FD4237 /* Helpers */,
 				E515C1A31F3CE1EE00FD4237 /* Coordinators */,
 				E515C1A41F3CE1FD00FD4237 /* Views */,
-				E515C1A51F3CE20F00FD4237 /* Models */,
+				E515C1A51F3CE20F00FD4237 /* ViewModels */,
+				E52207461F4225F600473FF7 /* Models */,
 				E58C558C1F31019500EC36FA /* AppDelegate.swift */,
 				E58C55901F31019500EC36FA /* Main.storyboard */,
 				E58C55931F31019500EC36FA /* Assets.xcassets */,
@@ -388,12 +405,15 @@
 				E52E22421F3CBD2300F236FD /* HNPostCell.swift in Sources */,
 				E58C558F1F31019500EC36FA /* HNListViewController.swift in Sources */,
 				E515C1A01F3CE16300FD4237 /* Coordinator.swift in Sources */,
+				E540DDE51F424A8E00BDB6B5 /* HNCommentCell.swift in Sources */,
 				E576F4371F33AF1A00155E13 /* UIScrollView+Rx.swift in Sources */,
 				E58C55B51F311F9E00EC36FA /* HNPost.swift in Sources */,
 				E58C55AF1F3118F700EC36FA /* HackerNewsAPI.swift in Sources */,
 				E5BEBA5E1F3279BF000DE3EE /* ActivityIndicator.swift in Sources */,
 				E58C558D1F31019500EC36FA /* AppDelegate.swift in Sources */,
+				E52207451F42251000473FF7 /* HNKidViewModel.swift in Sources */,
 				E58C55B11F31194300EC36FA /* HNListViewModel.swift in Sources */,
+				E52207431F4206FC00473FF7 /* HNCommentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
