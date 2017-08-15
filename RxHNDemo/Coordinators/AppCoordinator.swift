@@ -39,7 +39,16 @@ extension AppCoordinator: HNListCoordinatorViewDelegate {
     }
     
     func didSelect(post: HNPost) {
-        print(post)
+        showKidsViewController(with: post)
+    }
+}
+
+extension AppCoordinator: HNKidListCoordinatorViewDelegate {
+    func didTapOn(kid: HNPost) {
+        showKidsViewController(with: kid)
+    }
+}
+
 private extension AppCoordinator {
     func showKidsViewController(with post: HNPost) {
         guard let kids = post.kids else { return }
