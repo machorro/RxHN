@@ -43,8 +43,8 @@ extension HNPost: CustomStringConvertible {
     var description: String {
         let text = self.text ?? "no-text"
         return """
-        by:\(author), id:\(id), type:\(type.rawValue)
-        \(title)
+        by:\(author ?? "<no author>"), id:\(id), type:\(type.rawValue)
+        \(title ?? "<no title>")
         text: \(text)
 """
     }
