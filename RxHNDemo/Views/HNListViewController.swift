@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 class HNListViewController: UIViewController {
     
@@ -68,14 +69,11 @@ class HNListViewController: UIViewController {
                 cell.comments.text = "\(post.descendants ?? 0) comments"
                 
                 cell.button.rx.tap
-                    .subscribe { event in
-                        switch event {
-                        case .next:
-                            print("webview with url https://news.ycombinator.com/item?id=\(cell.post.id)")
-                            self.viewModel.didTapOnHNButton(with: cell.post)
-                        default: break
-                        }
-                    }
+                    .filter { _ in cell.post.kids?.count ?? 0 > 0 }
+                    .subscribe(onNext: {
+                        print("webview with url https://news.ycombinator.com/item?id=\(cell.post.id)")
+                        self.viewModel.didTapOnHNButton(with: cell.post)
+                    })
                     .addDisposableTo(cell.disposeBag)
             }
             .addDisposableTo(disposeBag)
