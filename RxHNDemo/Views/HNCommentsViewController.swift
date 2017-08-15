@@ -43,7 +43,7 @@ class HNCommentsViewController: UIViewController {
                 return count > 0
             }
             .subscribe(onNext: {
-                print("kids: ", $0.kids!.count)
+                self.viewModel.didTapOn(comment: $0)
                 
                 if let selectedRow = self.tableView.indexPathForSelectedRow {
                     self.tableView.deselectRow(at: selectedRow, animated: true)

@@ -12,7 +12,7 @@ import RxCocoa
 
 protocol HNKidListCoordinatorViewDelegate: class {
     typealias HNid = UInt64
-    func didTapOnKid(id: HNid)
+    func didTapOn(kid: HNPost)
 }
 
 class HNKidViewModel {
@@ -49,6 +49,10 @@ class HNKidViewModel {
     
     func refresh() {
         self.loadPageTrigger.onNext(())
+    }
+    
+    func didTapOn(comment: HNPost) {
+        self.coordinatorDelegate?.didTapOn(kid: comment)
     }
     
     private func getKids(_ kids: [HNid]) -> Observable<[HNPost]> {
