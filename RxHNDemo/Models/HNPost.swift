@@ -16,12 +16,12 @@ struct HNPost: Codable {
         case poll
         case pollopt
     }
-    typealias HNId = UInt64
+    typealias HNid = UInt64
     
-    let id: HNId
-    let title: String
+    let id: HNid
+    let title: String?
     let type: PostType
-    let author: String
+    let author: String?
     let time: Date
     let text: String?
     
@@ -30,12 +30,12 @@ struct HNPost: Codable {
     let dead: Bool
     */
     
-    let parent: HNId? //have now clue what this helps with
-    let poll: HNId? //poll id
-    let kids: [HNId]?
+    let parent: HNid? //have now clue what this helps with
+    let poll: HNid? //poll id
+    let kids: [HNid]?
     let url: URL?
-    let score: UInt
-    let parts: [HNId]?
+    let score: UInt?
+    let parts: [HNid]?
     let descendants: UInt?
 }
 

@@ -9,10 +9,12 @@
 import Moya
 
 enum HackerNews {
+    typealias HNid = UInt64
+    
     case new
     case best
     case top
-    case item(id: UInt64)
+    case item(id: HNid)
 }
 
 extension HackerNews: TargetType {
