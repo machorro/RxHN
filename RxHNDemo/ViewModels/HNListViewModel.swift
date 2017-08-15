@@ -13,7 +13,6 @@ import RxCocoa
 protocol HNListCoordinatorViewDelegate: class {
     func openURL(_ url: URL)
     func didSelect(post: HNPost)
-    func didLongPressOn(post: HNPost)
 }
 
 class HNListViewModel {
