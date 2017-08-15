@@ -40,5 +40,19 @@ extension AppCoordinator: HNListCoordinatorViewDelegate {
     
     func didSelect(post: HNPost) {
         print(post)
+private extension AppCoordinator {
+    func showKidsViewController(with post: HNPost) {
+        guard let kids = post.kids else { return }
+        let viewModel = HNKidViewModel(kids: kids)
+        viewModel.coordinatorDelegate = self
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "HNComments") as? HNCommentsViewController else {
+            fatalError("wrong vc")
+        }
+        vc.viewModel = viewModel
+        
+        let nc = window.rootViewController as! UINavigationController
+        nc.pushViewController(vc, animated: true)
     }
 }
